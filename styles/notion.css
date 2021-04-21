@@ -1,7 +1,7 @@
 /**
  * This file contains site-specifc style overrides for Notion elements from
  * react-notion-x.
- * 
+ *
  * react-notion-x's goal is to match styling as close as possible to Notion,
  * whereas our goal with this site is to adjust Notion's styling in a few key
  * places to add some flare.
@@ -32,6 +32,22 @@
 .notion-asset-wrapper {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.notion-asset-wrapper video {
+  max-width: 80vw;
+}
+
+.notion-asset-wrapper iframe {
+  max-width: 95vw;
+}
+
+.lazy-image-wrapper img.lazy-image-real {
+  position: relative !important;
+}
+
+.lazy-image-wrapper.lazy-image-loaded {
+  padding-bottom: 0px !important;
 }
 
 .notion-header .nav-header {
@@ -173,8 +189,8 @@
 }
 
 .notion-page-cover {
-  max-width: 1200px;
-  border-radius: 24px;
+  /* max-width: 1200px;
+  border-radius: 24px; */
   box-shadow: 2px 2px 8px 4px rgba(15, 15, 15, 0.1);
 }
 
@@ -193,6 +209,11 @@
   background: rgba(249, 250, 251, 1);
   border: 1px solid rgba(229, 231, 235, 1);
   border-radius: 0.375rem;
+  max-width: 85vw;
+}
+
+.notion-list {
+  max-width: 90vw;
 }
 
 .notion-link {

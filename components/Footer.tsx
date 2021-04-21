@@ -25,13 +25,21 @@ export const Footer: React.FC<{
     setHasMounted(true)
   }, [])
 
-  const notionUrl = `https://notion.so/${config.name}/${pageId}`
+  const notionUrl = `https://notion.so/${config.name}/${pageId.replace(
+    /-/g,
+    ''
+  )}`
 
   return (
     <footer className={styles.footer}>
       <div className={styles.copyright}>
         {new Date().getFullYear()} All rights reserved ·{' '}
-        <a style={{ textDecoration: 'underline' }} href={notionUrl}>
+        <a
+          style={{ textDecoration: 'underline' }}
+          href={notionUrl}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
           View in Notion
         </a>
       </div>
