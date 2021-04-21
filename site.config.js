@@ -8,7 +8,7 @@ module.exports = {
 
   // basic site info (required)
   name: 'wzulfikar',
-  domain: 'wzulfikar.com',
+  domain: process.env.NEXT_PUBLIC_DOMAIN || 'wzulfikar.com',
   author: 'Wildan Zulfikar',
 
   // open graph metadata (optional)
