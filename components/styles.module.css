@@ -46,7 +46,7 @@
 .footer {
   width: 100%;
   max-width: 1100px;
-  margin: auto auto 0;
+  margin: auto auto 15px;
   padding: 8px;
 
   display: flex;
@@ -94,7 +94,7 @@
 }
 
 .github:hover {
-  color: #c9510c;
+  color: #4da8e8;
 }
 
 .linkedin:hover {
