@@ -12,7 +12,9 @@ export default async (
   res: NextApiResponse
 ): Promise<void> => {
   if (req.method !== 'POST') {
-    return res.status(405).send({ error: 'method not allowed' })
+    return res
+      .status(405)
+      .send({ error: 'create-preview-image: method not allowed' })
   }
 
   if (!isPreviewImageSupportEnabled) {
