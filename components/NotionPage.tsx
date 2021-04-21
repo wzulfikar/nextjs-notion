@@ -155,7 +155,9 @@ export const NotionPage: React.FC<types.PageProps> = ({
       pageAside = <PageActions tweet={tweet} />
     }
   } else {
-    pageAside = <PageSocial />
+    if (config.showPageAsideSocials) {
+      pageAside = <PageSocial />
+    }
   }
 
   return (
@@ -276,7 +278,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
         }
       />
 
-      <GitHubShareButton />
+      {config.showGithubRibbon && <GitHubShareButton />}
     </TwitterContextProvider>
   )
 }
