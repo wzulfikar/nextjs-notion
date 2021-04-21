@@ -134,7 +134,7 @@
 }
 
 .notion-hr {
-  margin: 2em 0;
+  margin: 1em 0;
 }
 
 @media only screen and (max-width: 920px) {
@@ -326,6 +326,10 @@
   margin: 0;
   border-radius: 0;
   background: none !important;
+}
+
+.dark-mode .notion-hr {
+  border-color: #9e9e9e6e;
 }
 
 .notion-block-f382a57807bc40779860eb079d0144f2 .lazy-image-wrapper {
