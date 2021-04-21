@@ -7,7 +7,7 @@ module.exports = {
   rootNotionSpaceId: null,
 
   // basic site info (required)
-  name: 'wzulfikar.com',
+  name: 'wzulfikar',
   domain: 'wzulfikar.com',
   author: 'Wildan Zulfikar',
 
@@ -50,5 +50,5 @@ module.exports = {
   pageUrlOverrides: null,
 
   showGithubRibbon: false,
-  showPageAsideSocials: false,
+  showPageAsideSocials: false
 }

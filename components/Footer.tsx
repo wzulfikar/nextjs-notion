@@ -24,9 +24,19 @@ export const Footer: React.FC<{
     setHasMounted(true)
   }, [])
 
+  let notionUrl = null
+  if (hasMounted) {
+    notionUrl = `https://notion.so/${config.name}/${window.location.pathname}`
+  }
+
   return (
     <footer className={styles.footer}>
-      <div className={styles.copyright}>Copyright 2021 {config.author}</div>
+      <div className={styles.copyright}>
+        {new Date().getFullYear()} All rights reserved ·{' '}
+        <a style={{ textDecoration: 'underline' }} href={notionUrl}>
+          View in Notion
+        </a>
+      </div>
 
       {hasMounted ? (
         <div className={styles.settings}>
