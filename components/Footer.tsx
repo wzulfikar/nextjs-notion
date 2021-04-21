@@ -26,7 +26,9 @@ export const Footer: React.FC<{
 
   let notionUrl = null
   if (hasMounted) {
-    notionUrl = `https://notion.so/${config.name}/${window.location.pathname}`
+    const notionId =
+      window.location.pathname.substr(1) || config.rootNotionPageId
+    notionUrl = `https://notion.so/${config.name}/${notionId}`
   }
 
   return (
