@@ -115,6 +115,9 @@ export const fathomId = isDev ? null : process.env.NEXT_PUBLIC_FATHOM_ID
 
 export const fathomConfig = fathomId
   ? {
+      url:
+        process.env.NEXT_PUBLIC_FATHOM_SCRIPT_URL ||
+        'https://cdn.usefathom.com/script.js',
       excludedDomains: ['localhost', 'localhost:3000']
     }
   : undefined
