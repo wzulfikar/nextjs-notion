@@ -11,6 +11,8 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> => {
+  console.log('create-preview-image: method:', req.method)
+
   if (req.method !== 'POST') {
     return res
       .status(405)
