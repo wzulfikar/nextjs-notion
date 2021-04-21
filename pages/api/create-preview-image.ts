@@ -19,11 +19,12 @@ export default async (
       .send({ error: 'create-preview-image: method not allowed' })
   }
 
-  if (!isPreviewImageSupportEnabled) {
-    return res.status(418).send({
-      error: 'preview image support has been disabled for this deployment'
-    })
-  }
+  // Debug vercel build error (probably race condition)
+  // if (!isPreviewImageSupportEnabled) {
+  //   return res.status(418).send({
+  //     error: 'preview image support has been disabled for this deployment'
+  //   })
+  // }
 
   const { url, id } = req.body
 
