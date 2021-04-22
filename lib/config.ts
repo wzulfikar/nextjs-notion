@@ -31,6 +31,8 @@ export const pageUrlOverrides = cleanPageUrlMap(
 
 export const inversePageUrlOverrides = invertPageUrlOverrides(pageUrlOverrides)
 
+export const fontFamily = getSiteConfig('fontFamily', null)
+
 export const pageUrlAdditions = cleanPageUrlMap(
   getSiteConfig('pageUrlAdditions', {}) || {},
   'pageUrlAdditions'

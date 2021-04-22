@@ -11,6 +11,9 @@ module.exports = {
   domain: process.env.NEXT_PUBLIC_DOMAIN || 'wzulfikar.com',
   author: 'Wildan Zulfikar',
 
+  // Use custom font family (leave empty to use default font)
+  fontFamily: 'Work Sans',
+
   // open graph metadata (optional)
   description: 'Just another blog',
   socialImageTitle: 'wzulfikar.com',
