@@ -35,6 +35,11 @@
 }
 
 .notion-asset-wrapper video {
+  height: 100%;
+  height: -moz-available; /* WebKit-based browsers will ignore this. */
+  height: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+  height: fill-available;
+  max-height: 80vh;
   max-width: 80vw;
 }
 
