@@ -134,7 +134,8 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   // Use webshote for social image
   if (!socialImage) {
-    socialImage = `https://og-image.wzulfikar.com/${canonicalPageUrl}.png?template=webshot`
+    const text = router.asPath === '/' ? site.domain : encodeURIComponent(title)
+    socialImage = `https://og-image.wzulfikar.com/i/**${text}**.png?theme=dark&md=1&fontSize=125px&images=NO_IMAGE`
   }
 
   const socialDescription =
