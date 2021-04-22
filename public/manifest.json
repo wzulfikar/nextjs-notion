@@ -1,6 +1,6 @@
 {
-  "name": "Transitive Bullshit",
-  "short_name": "Transitive BS",
+  "name": "Wildan Zulfikar",
+  "short_name": "wzulfikar",
   "icons": [
     {
       "src": "/favicon-16x16.png",
@@ -33,7 +33,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#F898B9",
-  "background_color": "#ffffff",
+  "theme_color": "#1b1e21",
+  "background_color": "#1b1e21",
   "display": "standalone"
 }
