@@ -58,6 +58,20 @@
 .copyright {
   font-size: 80%;
   padding: 0.5em;
+  max-width: 40vw;
+  width: 100%;
+}
+
+.settings {
+  max-width: 20vw;
+  width: 100%;
+  text-align: center;
+}
+
+.social {
+  max-width: 40vw;
+  width: 100%;
+  text-align: right;
 }
 
 .settings,
@@ -127,6 +141,7 @@
 
   .footer > div {
     margin-top: 1em;
+    max-width: fit-content;
   }
 
   .footer .settings {
