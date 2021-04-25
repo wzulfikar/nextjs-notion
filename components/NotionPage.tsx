@@ -69,6 +69,11 @@ const Modal = dynamic(
   { ssr: false }
 )
 
+function getEmojiUrl(emoji) {
+  const hex = emoji.codePointAt(0).toString(16)
+  return `https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/${hex}.svg`
+}
+
 export const NotionPage: React.FC<types.PageProps> = ({
   site,
   recordMap,
@@ -134,10 +139,18 @@ export const NotionPage: React.FC<types.PageProps> = ({
     block
   )
 
-  // Use webshote for social image
+  // Use dynamic og image based on page title and icon
   if (!socialImage) {
     const text = router.asPath === '/' ? site.domain : encodeURIComponent(title)
-    socialImage = `https://og-image.wzulfikar.com/i/**${text}**.png?theme=dark&md=1&fontSize=125px&images=NO_IMAGE`
+    let page_icon = (block.format as any).page_icon || 'NO_IMAGE'
+    if (page_icon.startsWith('http')) {
+      // Fallback to NO_IMAGE if page_icon is not emoji
+      page_icon = 'NO_IMAGE'
+    } else {
+      // Convert emoji to svg url
+      page_icon = getEmojiUrl(page_icon)
+    }
+    socialImage = `https://og-image.wzulfikar.com/i/**${text}**.png?theme=dark&md=1&fontSize=125px&images=${page_icon}`
   }
 
   const socialDescription =
