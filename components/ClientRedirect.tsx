@@ -1,7 +1,14 @@
+import React from 'react'
 import Head from 'next/head'
+import * as Fathom from 'fathom-client'
 
 export function ClientRedirect({ url }) {
   const domain = new URL(url).hostname
+
+  React.useEffect(() => {
+    Fathom.trackPageview()
+  }, [])
+
   return (
     <>
       <Head>
