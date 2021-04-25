@@ -58,6 +58,8 @@ const Equation = dynamic(() =>
   import('react-notion-x').then((notion) => notion.Equation)
 )
 
+const BLOG_POST_PARENT_TABLE = 'block' // Originally, this was set to `collection`
+
 // we're now using a much lighter-weight tweet renderer react-static-tweets
 // instead of the official iframe-based embed widget from twitter
 // const Tweet = dynamic(() => import('react-tweet-embed'))
@@ -123,7 +125,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
   // const isRootPage =
   //   parsePageId(block.id) === parsePageId(site.rootNotionPageId)
   const isBlogPost =
-    block.type === 'page' && block.parent_table === 'collection'
+    block.type === 'page' && block.parent_table === BLOG_POST_PARENT_TABLE
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
 
