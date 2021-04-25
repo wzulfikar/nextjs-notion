@@ -86,6 +86,11 @@ export const utterancesGitHubRepo: string | null = getSiteConfig(
   null
 )
 
+export const utterancesGitHubLabel: string | null = getSiteConfig(
+  'utterancesGitHubLabel',
+  null
+)
+
 // Optional image CDN host to proxy all image requests through
 export const imageCDNHost: string | null = getSiteConfig('imageCDNHost', null)
 

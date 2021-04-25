@@ -165,6 +165,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
       comments = (
         <ReactUtterances
           repo={config.utterancesGitHubRepo}
+          label={config.utterancesGitHubLabel}
           issueMap='issue-term'
           issueTerm='title'
           theme={darkMode.value ? 'photon-dark' : 'github-light'}

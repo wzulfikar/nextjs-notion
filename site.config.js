@@ -36,6 +36,7 @@ module.exports = {
 
   // Utteranc.es comments via GitHub issue comments (optional)
   utterancesGitHubRepo: 'wzulfikar/wzulfikar.com',
+  utterancesGitHubLabel: 'blog-comment',
 
   // whether or not to enable support for LQIP preview images (optional)
   // NOTE: this requires you to set up Google Firebase and add the environment
