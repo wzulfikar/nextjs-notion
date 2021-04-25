@@ -63,6 +63,7 @@ export default function Btc({ address }) {
     ref.current.innerText = 'address copied!'
   }
 
+  const title = `Send BTC to ${twitter}`
   const pageUrl = `https://${domain}/btc`
   const socialImage =
     'https://og-image.wzulfikar.com/https%3A%2F%2Fwzulfikar.com%2Fbtc.png?&template=webshot'
@@ -70,22 +71,22 @@ export default function Btc({ address }) {
   return (
     <>
       <Head>
-        <meta property='og:title' content={domain} />
+        <meta property='og:title' content={title} />
         <meta property='og:site_name' content={domain} />
 
-        <meta name='twitter:title' content={domain} />
+        <meta name='twitter:title' content={title} />
         <meta property='twitter:domain' content={domain} />
 
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:image' content={socialImage} />
         <meta property='og:image' content={socialImage} />
-        <meta name='twitter:card' content='summary' />
+
         <link rel='canonical' href={pageUrl} />
         <meta property='og:url' content={pageUrl} />
         <meta property='twitter:url' content={pageUrl} />
       </Head>
       <div style={styles.container}>
-        <div style={styles.title}>Send BTC to {twitter}</div>
+        <div style={styles.title}>{title}</div>
 
         <div style={styles.qrcode}>
           <QRCode size={200} value={address} />
