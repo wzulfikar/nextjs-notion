@@ -49,7 +49,7 @@ export async function getStaticPaths() {
 
   // const siteMaps = await getSiteMaps()
 
-  const redirectPaths = Object.keys(redirects)
+  const redirectPaths = Object.keys(redirects).map((path) => `/${path}`)
 
   const ret = {
     // paths: siteMaps.flatMap((siteMap) =>
@@ -59,7 +59,7 @@ export async function getStaticPaths() {
     //     }
     //   }))
     // ),
-    paths: [redirectPaths], // Don't eager-load notion page paths to avoid race condition and slow build
+    paths: [...redirectPaths], // Don't eager-load notion page paths to avoid race condition and slow build
     fallback: true
   }
 
