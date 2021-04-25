@@ -81,13 +81,6 @@ export default function Btc({ address }) {
   )
 }
 
-export function getStaticPaths() {
-  return {
-    paths: [],
-    fallback: 'blocking'
-  }
-}
-
 export function getStaticProps() {
   const btcAddresses = (process.env.BTC_ADDRESSES || '').split(',')
   const randomInt = Math.floor(Math.random() * btcAddresses.length + 0)
