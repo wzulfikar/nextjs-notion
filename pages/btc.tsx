@@ -1,8 +1,9 @@
 import { useRef } from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 import { useCopyToClipboard } from 'react-use'
 import QRCode from 'qrcode.react'
-import { twitter } from 'lib/config'
+import { domain, twitter } from 'lib/config'
 
 const styles = {
   container: {
@@ -62,22 +63,43 @@ export default function Btc({ address }) {
     ref.current.innerText = 'address copied!'
   }
 
+  const pageUrl = `https://${domain}/btc`
+  const socialImage =
+    'https://og-image.wzulfikar.com/https%3A%2F%2Fwzulfikar.com%2Fbtc.png?&template=webshot'
+
   return (
-    <div style={styles.container}>
-      <div style={styles.title}>Send BTC to {twitter}</div>
+    <>
+      <Head>
+        <meta property='og:title' content={domain} />
+        <meta property='og:site_name' content={domain} />
 
-      <div style={styles.qrcode}>
-        <QRCode size={200} value={address} />
+        <meta name='twitter:title' content={domain} />
+        <meta property='twitter:domain' content={domain} />
+
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:image' content={socialImage} />
+        <meta property='og:image' content={socialImage} />
+        <meta name='twitter:card' content='summary' />
+        <link rel='canonical' href={pageUrl} />
+        <meta property='og:url' content={pageUrl} />
+        <meta property='twitter:url' content={pageUrl} />
+      </Head>
+      <div style={styles.container}>
+        <div style={styles.title}>Send BTC to {twitter}</div>
+
+        <div style={styles.qrcode}>
+          <QRCode size={200} value={address} />
+        </div>
+        <div style={styles.address}>{address}</div>
+        <button ref={ref} onClick={onClick} style={styles.buttonPrimary}>
+          copy address
+        </button>
+
+        <Link href='/'>
+          <a style={styles.buttonSecondary}>&larr; back to home</a>
+        </Link>
       </div>
-      <div style={styles.address}>{address}</div>
-      <button ref={ref} onClick={onClick} style={styles.buttonPrimary}>
-        copy address
-      </button>
-
-      <Link href='/'>
-        <a style={styles.buttonSecondary}>&larr; back to home</a>
-      </Link>
-    </div>
+    </>
   )
 }
 
