@@ -73,10 +73,12 @@ export default function Btc({ address }) {
             margin: auto;
             padding: 8px 8px 5px 8px;
             background: white;
+            cursor: pointer;
           }
           .address {
             padding-top: 8px;
             font-size: 11px;
+            cursor: pointer;
           }
           .button-primary {
             background: transparent;
@@ -87,6 +89,7 @@ export default function Btc({ address }) {
             color: white;
             text-transform: uppercase;
             font-size: 11px;
+            cursor: pointer;
           }
           .button-secondary {
             display: flex;
@@ -134,6 +137,6 @@ export function getStaticProps() {
     props: {
       address: address
     },
-    revalidate: 3
+    revalidate: 1
   }
 }
