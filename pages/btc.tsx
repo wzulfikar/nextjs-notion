@@ -1,13 +1,34 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import QRCode from 'qrcode.react'
 import { useCopyToClipboard } from 'react-use'
-import { domain, twitter } from 'lib/config'
+import SnackbarProvider, { useSnackbar } from 'react-simple-snackbar'
 
-export default function Btc({ address }) {
+import { domain, twitter } from 'lib/config'
+import { subscribePaymentAtAddress } from 'lib/btc'
+
+function Btc({ address }) {
   const ref = useRef(null)
   const [_, copyToClipboard] = useCopyToClipboard()
+
+  const [openSnackbar] = useSnackbar({
+    style: { backgroundColor: 'white', color: '#1b1e21' },
+    closeStyle: {
+      color: '#1b1e21'
+    }
+  })
+
+  useEffect(() => {
+    const snackbarDuration = 8000
+    const ws = subscribePaymentAtAddress(address, (amount) => {
+      openSnackbar('Payment received: ' + amount, snackbarDuration)
+    })
+
+    return () => {
+      ws.close()
+    }
+  }, [])
 
   function onClick() {
     copyToClipboard(address)
@@ -59,7 +80,7 @@ export default function Btc({ address }) {
           .container {
             display: grid;
             place-content: center;
-            background: black;
+            background: #1b1e21;
             color: white;
             height: 100vh;
             font-family: monospace;
@@ -123,6 +144,14 @@ export default function Btc({ address }) {
         </Link>
       </div>
     </>
+  )
+}
+
+export default function BtcWithSnackbar(props) {
+  return (
+    <SnackbarProvider>
+      <Btc {...props} />
+    </SnackbarProvider>
   )
 }
 
