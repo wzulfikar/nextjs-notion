@@ -29,6 +29,7 @@
     "@google-cloud/firestore": "^4.9.1",
     "chrome-aws-lambda": "^5.5.0",
     "classnames": "^2.2.6",
+    "comma-number": "^2.0.1",
     "date-fns": "^2.19.0",
     "fathom-client": "^3.0.0",
     "got": "^11.8.1",
@@ -51,6 +52,7 @@
     "react-static-tweets": "^0.5.3",
     "react-use": "^15.3.3",
     "static-tweets": "^0.5.3",
+    "swr": "^0.5.5",
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {

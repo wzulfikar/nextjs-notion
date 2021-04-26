@@ -34,6 +34,7 @@ import { Footer } from './Footer'
 import { PageSocial } from './PageSocial'
 import { GitHubShareButton } from './GitHubShareButton'
 import { ReactUtterances } from './ReactUtterances'
+import { ViewCounter } from './ViewCounter'
 
 import styles from './styles.module.css'
 
@@ -124,8 +125,9 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const siteMapPageUrl = mapPageUrl(site, recordMap, searchParams)
 
-  const canonicalPageUrl =
-    !config.isDev && getCanonicalPageUrl(site, recordMap)(pageId)
+  const pageUrl = getCanonicalPageUrl(site, recordMap)(pageId)
+  const canonicalPageUrl = !config.isDev && pageUrl
+  const slug = new URL(pageUrl).pathname.substr(1).replace(`-${pageId}`, '')
 
   // const isRootPage =
   //   parsePageId(block.id) === parsePageId(site.rootNotionPageId)
@@ -163,13 +165,18 @@ export const NotionPage: React.FC<types.PageProps> = ({
   if (isBlogPost) {
     if (config.utterancesGitHubRepo) {
       comments = (
-        <ReactUtterances
-          repo={config.utterancesGitHubRepo}
-          label={config.utterancesGitHubLabel}
-          issueMap='issue-term'
-          issueTerm='title'
-          theme={darkMode.value ? 'photon-dark' : 'github-light'}
-        />
+        <>
+          <div style={{ marginLeft: 'auto', marginTop: '1rem' }}>
+            – <ViewCounter slug={slug} />
+          </div>
+          <ReactUtterances
+            repo={config.utterancesGitHubRepo}
+            label={config.utterancesGitHubLabel}
+            issueMap='issue-term'
+            issueTerm='title'
+            theme={darkMode.value ? 'photon-dark' : 'github-light'}
+          />
+        </>
       )
     }
 
@@ -194,7 +201,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
       }}
     >
       <PageHead site={site} />
-
       <Head>
         <meta property='og:title' content={title} />
         <meta property='og:site_name' content={site.name} />
@@ -234,11 +240,8 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
         <title>{title}</title>
       </Head>
-
       <CustomFont site={site} />
-
       {isLiteMode && <BodyClassName className='notion-lite' />}
-
       <NotionRenderer
         bodyClassName={cs(
           styles.notion,
@@ -301,7 +304,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
           />
         }
       />
-
       {config.showGithubRibbon && <GitHubShareButton />}
     </TwitterContextProvider>
   )
