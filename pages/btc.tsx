@@ -156,7 +156,7 @@ export default function BtcWithSnackbar(props) {
 }
 
 export function getStaticProps() {
-  const btcAddresses = (process.env.BTC_ADDRESSES || '').split(',')
+  const btcAddresses = (process.env.BTC_ADDRESSES || '').split('-')
   const randomInt = Math.floor(Math.random() * btcAddresses.length + 0)
 
   // Get random address
