@@ -12,7 +12,8 @@ const styles = {
     background: 'black',
     color: 'white',
     height: '100vh',
-    fontFamily: 'monospace'
+    fontFamily: 'monospace',
+    touchAction: 'none'
   },
   title: { margin: 'auto', paddingBottom: 10 },
   qrcode: {
