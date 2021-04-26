@@ -8,11 +8,11 @@ export default async function handler(req, res) {
     const allRef = db.pageviews.doc('all')
     const slugRef = db.pageviews.doc(req.query.slug)
 
-    const [, , views] = await Promise.all([
+    await Promise.all([
       allRef.set({ count: increment }, { merge: true }),
-      slugRef.set({ count: increment }, { merge: true }),
-      (await slugRef.get()).data().count
+      slugRef.set({ count: increment }, { merge: true })
     ])
+    const views = (await slugRef.get()).data().count
 
     return res.status(200).json({
       total: views
