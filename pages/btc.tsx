@@ -12,12 +12,19 @@ export default function Btc({ address }) {
   function onClick() {
     copyToClipboard(address)
 
+    // Return early if user recently copied
+    // the address to prevent multiple setTimeout
+    if (ref.current.dataset.isCopying === 'true') return
+
     const originalText = ref.current.innerText
+
     setTimeout(() => {
       ref.current.innerText = originalText
-    }, 2000)
+      ref.current.dataset.isCopying = false
+    }, 1500)
 
     ref.current.innerText = 'address copied!'
+    ref.current.dataset.isCopying = true
   }
 
   const title = `Send BTC to ${twitter}`
@@ -98,10 +105,12 @@ export default function Btc({ address }) {
       <div className='container'>
         <div className='title'>{title}</div>
 
-        <div className='qrcode'>
+        <div className='qrcode' onClick={onClick}>
           <QRCode size={210} value={address} />
         </div>
-        <div className='address'>{address}</div>
+        <div className='address' onClick={onClick}>
+          {address}
+        </div>
         <button ref={ref} onClick={onClick} className='button-primary'>
           copy address
         </button>
