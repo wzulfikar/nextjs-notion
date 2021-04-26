@@ -1,53 +1,9 @@
 import { useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { useCopyToClipboard } from 'react-use'
 import QRCode from 'qrcode.react'
+import { useCopyToClipboard } from 'react-use'
 import { domain, twitter } from 'lib/config'
-
-const styles = {
-  container: {
-    display: 'grid',
-    placeContent: 'center',
-    background: 'black',
-    color: 'white',
-    height: '100vh',
-    fontFamily: 'monospace',
-    touchAction: 'none'
-  },
-  title: { margin: 'auto', paddingBottom: 10 },
-  qrcode: {
-    margin: 'auto',
-    padding: '8px 8px 5px 8px',
-    background: 'white'
-  },
-  address: {
-    paddingTop: 8,
-    fontSize: 11
-  },
-  buttonPrimary: {
-    background: 'transparent',
-    border: '1px solid white',
-    marginTop: '1rem',
-    padding: 3,
-    fontFamily: 'monospace',
-    color: 'white',
-    textTransform: 'uppercase' as any,
-    fontSize: 11
-  },
-  buttonSecondary: {
-    display: 'flex',
-    background: 'transparent',
-    marginTop: '0.5rem',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    fontFamily: 'monospace',
-    color: 'white',
-    textDecoration: 'underline' as any,
-    textTransform: 'uppercase' as any,
-    fontSize: 11
-  }
-}
 
 export default function Btc({ address }) {
   const ref = useRef(null)
@@ -86,19 +42,72 @@ export default function Btc({ address }) {
         <meta property='og:url' content={pageUrl} />
         <meta property='twitter:url' content={pageUrl} />
       </Head>
-      <div style={styles.container}>
-        <div style={styles.title}>{title}</div>
+      <style jsx>
+        {`
+          @media only screen and (max-width: 600px) {
+            .container {
+              padding-bottom: 4rem;
+            }
+          }
+          .container {
+            display: grid;
+            place-content: center;
+            background: black;
+            color: white;
+            height: 100vh;
+            font-family: monospace;
+            touch-action: none;
+          }
+          .title {
+            margin: auto;
+            padding-bottom: 10px;
+          }
+          .qrcode {
+            margin: auto;
+            padding: 8px 8px 5px 8px;
+            background: white;
+          }
+          .address {
+            padding-top: 8px;
+            font-size: 11px;
+          }
+          .button-primary {
+            background: transparent;
+            border: 1px solid white;
+            margin-top: 1rem;
+            padding: 3px;
+            font-family: monospace;
+            color: white;
+            text-transform: uppercase;
+            font-size: 11px;
+          }
+          .button-secondary {
+            display: flex;
+            background: transparent;
+            margin-top: 0.5rem;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: monospace;
+            color: white;
+            text-decoration: underline;
+            text-transform: uppercase;
+            font-size: 11px;
+          }
+        `}
+      </style>
+      <div className='container'>
+        <div className='title'>{title}</div>
 
-        <div style={styles.qrcode}>
-          <QRCode size={200} value={address} />
+        <div className='qrcode'>
+          <QRCode size={210} value={address} />
         </div>
-        <div style={styles.address}>{address}</div>
-        <button ref={ref} onClick={onClick} style={styles.buttonPrimary}>
+        <div className='address'>{address}</div>
+        <button ref={ref} onClick={onClick} className='button-primary'>
           copy address
         </button>
 
         <Link href='/'>
-          <a style={styles.buttonSecondary}>&larr; back to home</a>
+          <a className='button-secondary'>&larr; back to home</a>
         </Link>
       </div>
     </>
