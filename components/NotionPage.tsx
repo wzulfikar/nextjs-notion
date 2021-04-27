@@ -94,6 +94,24 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const darkMode = useDarkMode(true, { classNameDark: 'dark-mode' })
 
+  React.useEffect(() => {
+    const breadcrumb = document.querySelector('.breadcrumb.active')
+    if (!breadcrumb) return
+
+    // Trigger scroll on breadcrumb click. Scroll to bottom if
+    // window is at top. Else, scroll to top.
+    breadcrumb.addEventListener('click', () => {
+      if (window.scrollY === 0) {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+        ;(breadcrumb as any).setAttribute('title', 'Scroll to top')
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        ;(breadcrumb as any).setAttribute('title', 'Scroll to bottom')
+      }
+    })
+    ;(breadcrumb as any).style.cursor = 'pointer'
+  }, [router.isFallback])
+
   if (router.isFallback) {
     return <Loading />
   }

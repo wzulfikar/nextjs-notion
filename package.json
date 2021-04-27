@@ -51,6 +51,7 @@
     "react-simple-snackbar": "^1.1.11",
     "react-static-tweets": "^0.5.3",
     "react-use": "^15.3.3",
+    "smoothscroll-polyfill": "^0.4.4",
     "static-tweets": "^0.5.3",
     "swr": "^0.5.5",
     "use-dark-mode": "^2.3.1"
