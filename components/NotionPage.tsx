@@ -8,6 +8,7 @@ import { useSearchParam } from 'react-use'
 import BodyClassName from 'react-body-classname'
 import useDarkMode from 'use-dark-mode'
 import { PageBlock } from 'notion-types'
+import { FiBarChart2 } from 'react-icons/fi'
 
 import { Tweet, TwitterContextProvider } from 'react-static-tweets'
 
@@ -166,8 +167,16 @@ export const NotionPage: React.FC<types.PageProps> = ({
     if (config.utterancesGitHubRepo) {
       comments = (
         <>
-          <div style={{ marginLeft: 'auto', marginTop: '1rem' }}>
-            – <ViewCounter slug={slug} />
+          <div
+            style={{
+              marginLeft: 'auto',
+              marginTop: '1rem',
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            <FiBarChart2 style={{ marginRight: 3, marginBottom: 2 }} />
+            <ViewCounter slug={slug} />
           </div>
           <ReactUtterances
             repo={config.utterancesGitHubRepo}
