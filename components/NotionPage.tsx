@@ -9,6 +9,7 @@ import BodyClassName from 'react-body-classname'
 import useDarkMode from 'use-dark-mode'
 import { PageBlock } from 'notion-types'
 import { FiBarChart2 } from 'react-icons/fi'
+import ColorThief from 'colorthief'
 
 import { Tweet, TwitterContextProvider } from 'react-static-tweets'
 
@@ -110,7 +111,32 @@ export const NotionPage: React.FC<types.PageProps> = ({
       }
     })
     ;(breadcrumb as any).style.cursor = 'pointer'
+
+    // Update background color for cover image
+    matchBackgroundColorWithCover()
   }, [router.isFallback])
+
+  function matchBackgroundColorWithCover() {
+    const colorThief = new ColorThief()
+    const img = document.querySelector(
+      '.lazy-image-wrapper img:not([width="1500"])'
+    ) as any
+
+    // Do nothing if page has no cover image
+    if (!img) return
+
+    function updateColor(color: string[]) {
+      img.closest('div').style.backgroundColor = `rgb(${color.join(',')})`
+    }
+
+    if (img.complete) {
+      updateColor(colorThief.getColor(img))
+    } else {
+      img.addEventListener('load', () => {
+        updateColor(colorThief.getColor(img))
+      })
+    }
+  }
 
   if (router.isFallback) {
     return <Loading />

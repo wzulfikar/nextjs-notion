@@ -29,6 +29,7 @@
     "@google-cloud/firestore": "^4.9.1",
     "chrome-aws-lambda": "^5.5.0",
     "classnames": "^2.2.6",
+    "colorthief": "^2.3.2",
     "comma-number": "^2.0.1",
     "date-fns": "^2.19.0",
     "fathom-client": "^3.0.0",
