@@ -116,7 +116,7 @@ export function SimpleFeedback({ slug }) {
             className='btn-feedback'
             onClick={() => sendFeedback(true)}
             style={{
-              color: helpful === true ? '#4c8bf3' : 'unset',
+              color: helpful === true ? '#1b8cff' : 'unset',
               textDecoration: helpful === true ? 'underline 2px' : undefined
             }}
           >
@@ -129,7 +129,7 @@ export function SimpleFeedback({ slug }) {
             className='btn-feedback'
             onClick={() => sendFeedback(false)}
             style={{
-              color: helpful === false ? '#4c8bf3' : 'unset',
+              color: helpful === false ? '#1b8cff' : 'unset',
               textDecoration: helpful === false ? 'underline 2px' : undefined
             }}
           >
