@@ -217,7 +217,8 @@ export const NotionPage: React.FC<types.PageProps> = ({
               display: 'flex',
               justifyContent: 'space-between',
               width: '100%',
-              alignItems: 'center'
+              alignItems: 'center',
+              marginTop: '2rem'
             }}
           >
             <div>
