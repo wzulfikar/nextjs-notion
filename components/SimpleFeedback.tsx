@@ -7,6 +7,7 @@ export function SimpleFeedback({ slug }) {
 
   const uuidRef = useRef(null)
   const mountedRef = useRef(null)
+  const isDirtyRef = useRef(null)
 
   useEffect(() => {
     mountedRef.current = true
@@ -50,6 +51,9 @@ export function SimpleFeedback({ slug }) {
   }
 
   function sendFeedback(isHelpful) {
+    // Do nothing if `sendFeedback` is still processing
+    if (isDirtyRef.current) return
+
     // Add feedback or remove
     const prevState =
       helpful === true ? 'helpful' : helpful === false ? 'not_helpful' : null
@@ -70,6 +74,8 @@ export function SimpleFeedback({ slug }) {
     }
     setCount(newCount)
 
+    isDirtyRef.current = true
+
     fetch(`/api/feedbacks/${slug}`, {
       method: 'POST',
       headers: {
@@ -80,9 +86,13 @@ export function SimpleFeedback({ slug }) {
         helpful: newVal,
         prevState: prevState
       })
-    }).then((res) => {
-      syncFeedback(uuidRef.current)
     })
+      .then(async (res) => {
+        await syncFeedback(uuidRef.current)
+      })
+      .finally(() => {
+        isDirtyRef.current = false
+      })
   }
 
   return (
