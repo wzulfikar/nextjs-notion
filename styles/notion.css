@@ -10,6 +10,7 @@
 .notion {
   --notion-max-width: 720px;
   --notion-header-height: 54px;
+  --bg-color-dimmed: #1b1e21;
 }
 
 .notion-page {
@@ -354,7 +355,7 @@
 }
 
 .dark-mode.notion-app {
-  background: #1b1e21;
+  background: var(--bg-color-dimmed);
 }
 
 .notion-block-f382a57807bc40779860eb079d0144f2 .lazy-image-wrapper {
