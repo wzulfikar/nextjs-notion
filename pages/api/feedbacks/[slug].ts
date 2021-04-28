@@ -17,9 +17,14 @@ export default async function handler(req, res) {
       const feedback =
         helpful === true ? 'helpful' : helpful === false ? 'not_helpful' : null
 
-      const payload = {
-        count: helpful === null ? decrement : increment
-      } as any
+      const payload = {} as any
+
+      // Calculate total feedback count for current slug
+      if (prevState === null && feedback !== null) {
+        payload.count = increment
+      } else if (prevState !== null && feedback === null) {
+        payload.count = decrement
+      }
 
       if (feedback === 'helpful') {
         payload.helpful = increment
