@@ -32,6 +32,7 @@
     "colorthief": "^2.3.2",
     "comma-number": "^2.0.1",
     "date-fns": "^2.19.0",
+    "device-uuid": "^1.0.4",
     "fathom-client": "^3.0.0",
     "got": "^11.8.1",
     "isomorphic-unfetch": "^3.1.0",

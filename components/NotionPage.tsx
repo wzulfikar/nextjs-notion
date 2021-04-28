@@ -37,6 +37,7 @@ import { PageSocial } from './PageSocial'
 import { GitHubShareButton } from './GitHubShareButton'
 import { ReactUtterances } from './ReactUtterances'
 import { ViewCounter } from './ViewCounter'
+import { SimpleFeedback } from './SimpleFeedback'
 
 import styles from './styles.module.css'
 
@@ -213,14 +214,25 @@ export const NotionPage: React.FC<types.PageProps> = ({
         <>
           <div
             style={{
-              marginLeft: 'auto',
-              marginTop: '1rem',
               display: 'flex',
+              justifyContent: 'space-between',
+              width: '100%',
               alignItems: 'center'
             }}
           >
-            <FiBarChart2 style={{ marginRight: 3, marginBottom: 2 }} />
-            <ViewCounter slug={slug} />
+            <div>
+              <SimpleFeedback slug={slug} />
+            </div>
+            <div
+              style={{
+                marginLeft: 'auto',
+                display: 'flex',
+                alignItems: 'center'
+              }}
+            >
+              <FiBarChart2 style={{ marginRight: 3, marginBottom: 2 }} />
+              <ViewCounter slug={slug} />
+            </div>
           </div>
           <ReactUtterances
             repo={config.utterancesGitHubRepo}

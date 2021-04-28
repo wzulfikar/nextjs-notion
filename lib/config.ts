@@ -159,6 +159,11 @@ export const firebaseCollectionPageviews = getEnv(
   'pageviews'
 )
 
+export const firebaseCollectionFeedbacks = getEnv(
+  'FIREBASE_COLLECTION_FEEDBACKS',
+  'feedbacks'
+)
+
 // this hack is necessary because vercel doesn't support secret files so we need to encode our google
 // credentials a base64-encoded string of the JSON-ified content
 function getGoogleApplicationCredentials() {

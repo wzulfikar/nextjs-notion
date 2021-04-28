@@ -4,6 +4,13 @@ import * as config from './config'
 export let db: firestore.Firestore = null
 export let images: firestore.CollectionReference = null
 export let pageviews: firestore.CollectionReference = null
+export let feedbacks: firestore.CollectionReference = null
+
+export const collections = {
+  images: config.firebaseCollectionImages,
+  pageviews: config.firebaseCollectionPageviews,
+  feedbacks: config.firebaseCollectionFeedbacks
+}
 
 if (config.isPreviewImageSupportEnabled) {
   db = new firestore.Firestore({
@@ -11,6 +18,7 @@ if (config.isPreviewImageSupportEnabled) {
     credentials: config.googleApplicationCredentials
   })
 
-  images = db.collection(config.firebaseCollectionImages)
-  pageviews = db.collection(config.firebaseCollectionPageviews)
+  images = db.collection(collections.images)
+  pageviews = db.collection(collections.pageviews)
+  feedbacks = db.collection(collections.feedbacks)
 }
