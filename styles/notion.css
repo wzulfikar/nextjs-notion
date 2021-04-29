@@ -58,7 +58,8 @@
 
 @media only screen and (min-width: 600px) {
   /* Use object-fit contain if image width is not Notion's recommended width */
-  .lazy-image-wrapper img:not([width='1500']) {
+  .lazy-image-wrapper img:not([width="1500"]):not([src*="//images.unsplash.com"])
+  {
     object-fit: contain;
   }
 }

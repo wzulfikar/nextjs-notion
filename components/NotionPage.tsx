@@ -120,7 +120,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
   function matchBackgroundColorWithCover() {
     const colorThief = new ColorThief()
     const img = document.querySelector(
-      '.lazy-image-wrapper img:not([width="1500"])'
+      '.lazy-image-wrapper img:not([width="1500"]):not([src*="//images.unsplash.com"])'
     ) as any
 
     // Do nothing if page has no cover image
