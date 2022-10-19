@@ -11,24 +11,30 @@ export function ClientRedirect({ url }) {
 
   return (
     <>
+      <style jsx global>
+        {`
+          .redirect-page {
+            color: #383838;
+            font-family: 'Menlo', 'Monaco', Courier, monospace;
+            font-size: 0.8em;
+            display: flex;
+            height: 90vh;
+            justify-content: center;
+            align-items: center;
+          }
+          .dark-mode .redirect-page {
+            background-color: var(--bg-color);
+            color: var(--fg-color);
+            height: 100vh;
+          }
+        `}
+      </style>
       <Head>
         <title>Redirecting {domain}…</title>
         <meta http-equiv='refresh' content={`0; URL=${url}`} />
         <link rel='canonical' href={`${url}`} />
       </Head>
-      <div
-        style={{
-          color: '#383838',
-          fontFamily: "'Menlo', 'Monaco', Courier, monospace",
-          fontSize: '0.8em',
-          display: 'flex',
-          height: '90vh',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-      >
-        Redirecting to {domain}…
-      </div>
+      <div className='redirect-page'>Redirecting to {domain}…</div>
     </>
   )
 }

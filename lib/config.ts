@@ -41,6 +41,8 @@ export const pageUrlAdditions = cleanPageUrlMap(
 // general site config
 export const name: string = getSiteConfig('name')
 export const author: string = getSiteConfig('author')
+export const authorNickname: string = getSiteConfig('authorNickname')
+export const email: string = getSiteConfig('email')
 export const domain: string = getSiteConfig('domain')
 export const description: string = getSiteConfig('description', 'Notion Blog')
 export const showGithubRibbon: boolean = getSiteConfig(
@@ -49,6 +51,10 @@ export const showGithubRibbon: boolean = getSiteConfig(
 )
 export const showPageAsideSocials: boolean = getSiteConfig(
   'showPageAsideSocials',
+  false
+)
+export const showViewInNotion: boolean = getSiteConfig(
+  'showViewInNotion',
   false
 )
 
@@ -132,11 +138,11 @@ const fathomDomain = isDev ? null : process.env.NEXT_PUBLIC_FATHOM_DOMAIN
 
 export const fathomConfig = fathomId
   ? {
-      url: fathomDomain
-        ? `https://${fathomDomain}/script.js`
-        : 'https://cdn.usefathom.com/script.js',
-      excludedDomains: ['localhost', 'localhost:3000']
-    }
+    url: fathomDomain
+      ? `https://${fathomDomain}/script.js`
+      : 'https://cdn.usefathom.com/script.js',
+    excludedDomains: ['localhost', 'localhost:3000']
+  }
   : undefined
 
 const defaultEnvValueForPreviewImageSupport =
