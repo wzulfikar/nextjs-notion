@@ -5,7 +5,8 @@ const redirects = {
   notion: `https://www.notion.so/wzulfikar/dbe6b9fe47244464b1d3832969426f9e`,
   twitter: `https://twitter.com/${twitter}`,
   github: `https://github.com/${github}`,
-  linkedin: `https://linkedin.com/in/${linkedin}`
+  linkedin: `https://linkedin.com/in/${linkedin}`,
+  notes: 'https://gist.github.com/wzulfikar/ba2f58d7aeeb3cf53743316f96f91594'
 }
 
 export default redirects
