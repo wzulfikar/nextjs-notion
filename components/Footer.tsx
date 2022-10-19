@@ -33,30 +33,40 @@ export const Footer: React.FC<{
   return (
     <footer className={styles.footer}>
       <div className={styles.copyright}>
-        {new Date().getFullYear()} All rights reserved ·{' '}
+        {new Date().getFullYear()} ©{' '}
         <a
-          style={{ textDecoration: 'underline' }}
-          href={notionUrl}
-          target='_blank'
-          rel='noopener noreferrer'
+          href={`mailto:${config.email}?subject=Hey ${config.authorNickname}!`}
         >
-          View in Notion
+          {config.author}
         </a>
+        {config.showViewInNotion && (
+          <>
+            ·{' '}
+            <a
+              style={{ textDecoration: 'underline' }}
+              href={notionUrl}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              View in Notion
+            </a>
+          </>
+        )}
       </div>
 
-      {hasMounted ? (
-        <div className={styles.settings}>
-          <a
-            className={styles.toggleDarkMode}
-            onClick={toggleDarkModeCb}
-            title='Tottle dark mode'
-          >
-            {isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
-          </a>
-        </div>
-      ) : null}
-
       <div className={styles.social}>
+        {hasMounted ? (
+          <>
+            <a
+              className={styles.toggleDarkMode}
+              onClick={toggleDarkModeCb}
+              title='Tottle dark mode'
+            >
+              {isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
+            </a>
+            <span className={styles.darkModeDivider}>|</span>
+          </>
+        ) : null}
         {config.twitter && (
           <a
             className={styles.twitter}

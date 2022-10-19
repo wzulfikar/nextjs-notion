@@ -10,6 +10,8 @@ module.exports = {
   name: 'wzulfikar',
   domain: process.env.NEXT_PUBLIC_DOMAIN || 'wzulfikar.com',
   author: 'Wildan Zulfikar',
+  authorNickname: 'Wildan',
+  email: 'hey@wzulfikar.com',
 
   // Use custom font family (leave empty to use default font)
   fontFamily: 'Work Sans',

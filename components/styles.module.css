@@ -45,7 +45,7 @@
 
 .footer {
   width: 100%;
-  max-width: 1100px;
+  max-width: 750px;
   margin: auto auto 15px;
   padding: 8px;
 
@@ -85,7 +85,7 @@
   font-size: 2em;
   display: inline-flex;
   padding: 0.25em;
-  margin-right: 1vw;
+  margin-right: 0.3vw;
   transition: color 250ms ease-out;
 }
 
@@ -101,6 +101,12 @@
 
 .toggleDarkMode:hover {
   color: #2795e9;
+}
+
+.darkModeDivider {
+  margin-right: 15px;
+  top: -12px;
+  position: relative;
 }
 
 .twitter:hover {
