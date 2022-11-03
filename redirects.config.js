@@ -6,7 +6,8 @@ const redirects = {
   twitter: `https://twitter.com/${twitter}`,
   github: `https://github.com/${github}`,
   linkedin: `https://linkedin.com/in/${linkedin}`,
-  notes: 'https://gist.github.com/wzulfikar/ba2f58d7aeeb3cf53743316f96f91594'
+  notes: 'https://gist.github.com/wzulfikar/ba2f58d7aeeb3cf53743316f96f91594',
+  logs: 'https://gist.github.com/wzulfikar/5ea5779d7f2ea0e27809e94e7904f93d'
 }
 
 export default redirects
