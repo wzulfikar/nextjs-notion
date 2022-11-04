@@ -9,7 +9,7 @@ export const getStaticProps = async (context) => {
   const rawPageId = context.params.pageId as string
 
   // Handle client redirect
-  if (redirects[rawPageId]) {
+  if (redirects[rawPageId]?.clientRedirect) {
     return {
       props: {
         clientRedirect: true,

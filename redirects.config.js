@@ -1,4 +1,4 @@
-import { twitter, github, linkedin } from './site.config'
+const { twitter, github, linkedin } = require('./site.config')
 
 const redirects = {
   calendly: `https://calendly.com/wzulfikar`,
@@ -11,4 +11,4 @@ const redirects = {
   scripts: 'https://github.com/wzulfikar/scripts',
 }
 
-export default redirects
+module.exports = redirects;
