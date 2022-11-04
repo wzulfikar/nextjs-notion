@@ -7,7 +7,8 @@ const redirects = {
   github: `https://github.com/${github}`,
   linkedin: `https://linkedin.com/in/${linkedin}`,
   notes: 'https://gist.github.com/wzulfikar/ba2f58d7aeeb3cf53743316f96f91594',
-  logs: 'https://gist.github.com/wzulfikar/5ea5779d7f2ea0e27809e94e7904f93d'
+  logs: 'https://gist.github.com/wzulfikar/5ea5779d7f2ea0e27809e94e7904f93d',
+  scripts: 'https://github.com/wzulfikar/scripts',
 }
 
 export default redirects
