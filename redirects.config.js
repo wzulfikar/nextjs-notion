@@ -13,7 +13,10 @@ const redirects = {
   scripts: 'https://github.com/wzulfikar/scripts',
 
   // Github repos
-  facegrep: `${githubProfile}/facegrep`
+  facegrep: `${githubProfile}/facegrep`,
+
+  // Other redirects
+  'node-design-patterns': 'https://github.com/nimit95/Real-world-Design-Patterns-Node-JS/blob/master/docs.md',
 }
 
 module.exports = redirects;
