@@ -17,6 +17,7 @@ const redirects = {
 
   // Other redirects
   'node-design-patterns': 'https://github.com/nimit95/Real-world-Design-Patterns-Node-JS/blob/master/docs.md',
+  abbr: 'https://gist.github.com/wzulfikar/1890ad2a381347ae060f7f877b98656d',
 }
 
 module.exports = redirects;
